@@ -1,0 +1,37 @@
+{
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    ".venv": true,
+    ".github": true,
+    "requirements.txt": true,
+    // "logs": true
+  },
+  "editor.fontFamily": "Fira Code",
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontLigatures": true,
+  "editor.mouseWheelZoom": true,
+  "python.analysis.autoFormatStrings": true,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/__pycache__/**": true,
+    "**/.git/**": true,
+    "**/logs/**": true,
+    "**/env/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.git": true,
+    "**/logs": true,
+    "**/env": true
+  },
+  "python.analysis.memory.keepLibraryAst": false,
+  "python.analysis.indexing": false
+
+  // "files.watcherExclude": {
+  // "**/node_modules/**": true,
+  // "**/.git/**": true
+// }
+}
