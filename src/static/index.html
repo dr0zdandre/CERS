@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют ЦБ РФ</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Конвертер валют</h1>
+        <p class="subtitle">Официальные курсы ЦБ РФ</p>
+
+        <div class="converter-box">
+            <div class="row">
+                <input type="number" id="amount" placeholder="Сумма" value="1">
+
+                <div class="custom-select" id="from-currency-wrapper">
+                    <button type="button" class="select-trigger" id="from-trigger">
+                        <span class="selected-value">USD</span>
+                        <span class="arrow-down">▾</span>
+                    </button>
+                    <ul class="select-dropdown" id="from-dropdown"></ul>
+                </div>
+
+                <span class="arrow">→</span>
+
+                <div class="custom-select" id="to-currency-wrapper">
+                    <button type="button" class="select-trigger" id="to-trigger">
+                        <span class="selected-value">RUB</span>
+                        <span class="arrow-down">▾</span>
+                    </button>
+                    <ul class="select-dropdown" id="to-dropdown"></ul>
+                </div>
+            </div>
+
+            <div class="result" id="result">Выберите валюты</div>
+            <div class="rate-info" id="rate-info"></div>
+        </div>
+    </div>
+    <div id="particles-container"></div>
+    <script src="static/script.js"></script>
+    <script src="static/particles.js"></script>
+</body>
+</html>
+
+
+
