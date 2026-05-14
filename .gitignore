@@ -1,0 +1,13 @@
+logs
+.log
+*.pyc
+*.log
+.env
+.venv/
+.venv
+__pycache__
+*.pyc
+.git
+settings
+versions
+postgresql.txt
