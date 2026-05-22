@@ -8,6 +8,7 @@ from src.config import Config
 _cache: Dict = {"date": None, "rates": {}}
 
 def get_cache_info():
+    """Возвращает дату последнего успешного кеша."""
     return {"date": str(_cache["date"]) if _cache["date"] else None}
 
 async def fetch_cbr_rates() -> dict:
@@ -18,14 +19,12 @@ async def fetch_cbr_rates() -> dict:
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
     }
-
-    URL = "https://www.cbr.ru/scripts/XML_daily.asp"
-
     async with httpx.AsyncClient(timeout=10.0, headers=headers) as client:
-        response = await client.get(URL)
+        response = await client.get(Config.CBRF_URL)
         response.raise_for_status()
 
-    root = ET.fromstring(response.text)
+    content = response.content.decode('windows-1251')
+    root = ET.fromstring(content)
     rates = {}
     for valute in root.findall("Valute"):
         char_code = valute.find("CharCode").text
