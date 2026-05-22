@@ -23,6 +23,8 @@
                     <ul class="select-dropdown" id="from-dropdown"></ul>
                 </div>
 
+                <button type="button" class="swap-btn" id="swapBtn" title="Поменять местами">⇄</button>
+
                 <span class="arrow">→</span>
 
                 <div class="custom-select" id="to-currency-wrapper">
@@ -37,8 +39,66 @@
             <div class="result" id="result">Выберите валюты</div>
             <div class="rate-info" id="rate-info"></div>
         </div>
+
+        <!-- Блок истории курса -->
+        <div class="history-box">
+            <h2>История курса</h2>
+            <div class="history-controls">
+                <div class="control-group">
+                    <label>Год начала</label>
+                    <select id="yearFrom"></select>
+                </div>
+                <div class="control-group">
+                    <label>Год окончания</label>
+                    <select id="yearTo"></select>
+                </div>
+                <div class="control-group">
+                    <label>Шаг графика</label>
+                    <select id="chartStep">
+                        <option value="day">Каждый день</option>
+                        <option value="month" selected>Каждый месяц</option>
+                        <option value="quarter">Каждый квартал</option>
+                        <option value="halfyear">Каждые 6 месяцев</option>
+                        <option value="year">Каждый год</option>
+                    </select>
+                </div>
+                <button id="loadHistoryBtn">Показать график</button>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="historyChart"></canvas>
+                <button class="reset-zoom-btn" id="resetZoomBtn" title="Сбросить масштаб">⟲ Сбросить зум</button>
+            </div>
+
+            <div class="history-stats" id="historyStats">
+                <div class="stat-card">
+                    <div class="label">Текущий курс</div>
+                    <div class="value" id="currentValue">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Минимум</div>
+                    <div class="value green" id="minValue">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Максимум</div>
+                    <div class="value red" id="maxValue">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Изменение</div>
+                    <div class="value" id="changeValue">-</div>
+                </div>
+            </div>
+
+            <div class="loading" id="historyLoading" style="display: none;">
+                Загрузка данных...
+            </div>
+            <div class="error" id="historyError" style="display: none;"></div>
+        </div>
     </div>
     <div id="particles-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1"></script>
     <script src="static/script.js"></script>
     <script src="static/particles.js"></script>
 </body>
